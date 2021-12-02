@@ -10,18 +10,18 @@ depth = 0
 aim = 0
 
 for line in input:
-    words = line.split(' ')
-    number = int(words[1])
+    ins, num = line.split()
+    num = int(num)
 
-    if words[0] == 'forward':
-        horiz += number
-        depth += (aim * number)
-    elif words[0] == 'down':
-        aim += number
+    if ins == 'forward':
+        horiz += num
+        depth += (aim * num)
+    elif ins == 'down':
+        aim += num
         # depth += number
-    elif words[0] == 'up':
+    elif ins == 'up':
         # depth -= number
-        aim -= number
+        aim -= num
 
 print(horiz, depth)
 print(horiz * depth)
