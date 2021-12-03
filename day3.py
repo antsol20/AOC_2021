@@ -5,7 +5,6 @@ f = open('input.txt', 'r')
 for line in f:
     input.append((line.strip()))
 
-
 gamma = ""
 
 for i in range(12):
