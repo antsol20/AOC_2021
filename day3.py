@@ -83,7 +83,6 @@ for i in range(12):
             ones += 1
             one_locs.append(idx)
 
-
     new = []
     if zeroes <= ones:
         for row in zero_locs:
