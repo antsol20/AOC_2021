@@ -36,21 +36,68 @@ epsilon = int(epsilon, 2)
 
 print(gamma, epsilon, gamma*epsilon)
 
+oxyinput = input
+co2input = input
 
-zeroes = 0
-ones = 0
-zero_locs = []
-one_locs = []
+for i in range(12):
+    zeroes = 0
+    ones = 0
+    zero_locs = []
+    one_locs = []
 
-for idx, line in enumerate(input):
-    if line[0] == "0":
-        zeroes += 1
-        zero_locs.append(idx)
+    for idx, line in enumerate(oxyinput):
+        if line[i] == "0":
+            zeroes += 1
+            zero_locs.append(idx)
+        else:
+            ones += 1
+            one_locs.append(idx)
+
+
+    new = []
+    if zeroes > ones:
+        for row in zero_locs:
+            new.append(oxyinput[row])
     else:
-        ones += 1
-        one_locs.append(idx)
+        for row in one_locs:
+            new.append(oxyinput[row])
 
-if zeroes > ones:
-    gamma += "0"
-else:
-    gamma += "1"
+    oxyinput = new
+
+oxygen = int(oxyinput[0], 2)
+
+for i in range(12):
+    if len(co2input) == 1:
+        continue
+
+    zeroes = 0
+    ones = 0
+    zero_locs = []
+    one_locs = []
+
+    for idx, line in enumerate(co2input):
+        if line[i] == "0":
+            zeroes += 1
+            zero_locs.append(idx)
+        else:
+            ones += 1
+            one_locs.append(idx)
+
+
+    new = []
+    if zeroes <= ones:
+        for row in zero_locs:
+            new.append(co2input[row])
+    else:
+        for row in one_locs:
+            new.append(co2input[row])
+
+    co2input = new
+
+
+co2 = int(co2input[0], 2)
+
+print(oxygen)
+print(co2)
+
+print(oxygen*co2)
